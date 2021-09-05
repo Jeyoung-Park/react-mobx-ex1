@@ -3,10 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'mobx-react';
+import CounterStore from './store/counter';
+
+const counter=new CounterStore();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider counter={counter}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
