@@ -1,29 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { makeAutoObservable } from "mobx";
 import { observer } from "mobx-react";
+import Counter from "./store/counter";
+import CounterStore from "./store/counter";
 
-class Counter {
-  count = 0;
-
-  constructor() {
-    makeAutoObservable(this);
-  }
-
-  increase() {
-    this.count++;
-  }
-
-  decrease() {
-    this.count--;
-  }
-
-  reset() {
-    this.count = 0;
-  }
-}
-
-const myCounter = new Counter();
+const myCounter = new CounterStore();
 
 const CounterView = observer(({ counter }) => (
   <>
